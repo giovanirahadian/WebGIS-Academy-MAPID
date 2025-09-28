@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | GeoForest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        nature: {
+                            dark: "#0A400C",
+                            medium: "#819067",
+                            light: "#B1AB86",
+                            cream: "#FEFAE0"
+                        }
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['Exo 2', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-image {
+            width: 150px;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(10, 64, 12, 0.2);
+            border: 3px solid #B1AB86;
+        }
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="dark:bg-nature-dark bg-nature-cream transition-colors duration-500 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-nature-dark to-nature-medium py-4 shadow-lg dark:shadow-nature-dark/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-orbitron text-xl font-bold text-nature-cream">GeoForest</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Home</a>
+                    <a href="map.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Map</a>
+                    <a href="profile.html" class="text-nature-light font-semibold border-b-2 border-nature-light transition-colors duration-300 font-exo">Contact Us</a>
+                    <button onclick="changeTheme()" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-nature-cream">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-2">
+                <a href="index.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Home</a>
+                <a href="map.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Map</a>
+                <a href="profile.html" class="block py-2 text-nature-light font-semibold transition-colors duration-300 font-exo">Contact Us</a>
+                <button onclick="changeTheme()" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                    <span id="mobile-theme-icon">🌙</span>
+                    <span class="ml-2">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2">
+                <!-- Profile  -->
+                <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 mb-8 border border-nature-light/30">
+                    <h1 class="text-3xl font-orbitron font-bold text-nature-dark dark:text-nature-light mb-6">About Me</h1>
+                    <div class="flex flex-col md:flex-row items-start gap-6 profile-container">
+                        <div class="flex-shrink-0 mx-auto md:mx-0">
+                            <div class="relative">
+                                <div class="absolute -inset-2 bg-nature-medium/20 rounded-2xl blur"></div>
+                                <img src="foto.jpg" 
+                                     class="profile-image relative" 
+                                     alt="Giovani Profile Photo">
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h2 class="text-2xl font-exo font-semibold text-nature-dark dark:text-nature-light">Giovani Rahadian Arif</h2>
+                            <p class="text-nature-medium dark:text-nature-light font-exo mt-2">Forestry Engineer & GIS Analyst</p>
+                            <p class="mt-4 text-nature-dark dark:text-nature-cream font-exo">Hello! I'm Giovani, a bachelor graduate in Forestry Engineering from Bandung Institute of Technology</p>
+                            <p class="mt-4 text-nature-dark dark:text-nature-cream font-exo">GIS Analyst with a background in conservation and forestry. Accumulated experience in land cover mapping, spatial ecosystem analysis, surveying, and biodiversity assessment. Possesses knowledge and interest in conservation, ecosystems, and sustainable management.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 mb-8 border border-nature-light/30">
+                    <h2 class="text-2xl font-orbitron font-bold text-nature-dark dark:text-nature-light mb-6">Experience</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:rounded-full before:bg-nature-medium">
+                            <h3 class="text-xl font-exo font-semibold text-nature-dark dark:text-nature-light">GIS Assistant PUSAKA</h3>
+                            <p class="text-nature-medium dark:text-nature-light font-exo">Program Konservasi Satwa Langka Astra - SITH ITB (2024)</p>
+                            <p class="mt-2 text-nature-dark dark:text-nature-cream font-exo">Conducted spatial analysis for Javan Slow Loris conservation efforts in Garut Regency, West Java.</p>
+                        </div>
+                        
+                        <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:rounded-full before:bg-nature-medium">
+                            <h3 class="text-xl font-exo font-semibold text-nature-dark dark:text-nature-light">Assistant Coordinator Remote Sensing and GIS</h3>
+                            <p class="text-nature-medium dark:text-nature-light font-exo">SITH ITB (2024)</p>
+                            <p class="mt-2 text-nature-dark dark:text-nature-cream font-exo">Taught and trained students in GIS Theory and GIS software operation</p>
+                        </div>
+                        
+                        <div class="relative pl-8 before:absolute before:left-0 before:top-2 before:w-4 before:h-4 before:rounded-full before:bg-nature-medium">
+                            <h3 class="text-xl font-exo font-semibold text-nature-dark dark:text-nature-light">Research Intern</h3>
+                            <p class="text-nature-medium dark:text-nature-light font-exo">Tanjung Puting National Park (2023)</p>
+                            <p class="mt-2 text-nature-dark dark:text-nature-cream font-exo">Conducted spatial data modeling for carbon stock estimation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact -->
+            <div class="lg:col-span-1">
+                <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 mb-8 border border-nature-light/30">
+                    <h2 class="text-2xl font-orbitron font-bold text-nature-dark dark:text-nature-light mb-6">Contact Information</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-nature-medium/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-nature-medium"></i>
+                            </div>
+                            <div>
+                                <p class="font-exo text-nature-dark dark:text-nature-cream">Email</p>
+                                <a href="mailto:giovanirahadian@gmail.com" class="font-exo text-nature-medium dark:text-nature-light hover:underline">giovanirahadian@gmail.com</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-nature-medium/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-nature-medium"></i>
+                            </div>
+                            <div>
+                                <p class="font-exo text-nature-dark dark:text-nature-cream">Location</p>
+                                <p class="font-exo text-nature-medium dark:text-nature-light">Cimahi, West Java</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-nature-medium/20 flex items-center justify-center mr-4">
+                                <i class="fab fa-linkedin-in text-nature-medium"></i>
+                            </div>
+                            <div>
+                                <p class="font-exo text-nature-dark dark:text-nature-cream">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/giovanirahadian/" class="font-exo text-nature-medium dark:text-nature-light hover:underline">Giovani Rahadian Arif</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-nature-medium/20 flex items-center justify-center mr-4">
+                                <i class="fab fa-github text-nature-medium"></i>
+                            </div>
+                            <div>
+                                <p class="font-exo text-nature-dark dark:text-nature-cream">GitHub</p>
+                                <a href="https://github.com/giovanirahadian/" class="font-exo text-nature-medium dark:text-nature-light hover:underline">giovanirahadian</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>               
+                <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 border border-nature-light/30">
+                    <h2 class="text-2xl font-orbitron font-bold text-nature-dark dark:text-nature-light mb-6">WebGIS Project</h2>
+                    <div class="bg-gradient-to-r from-nature-medium/10 to-nature-light/10 p-4 rounded-lg border border-nature-light/30">
+                        <h3 class="text-xl font-exo font-semibold text-nature-dark dark:text-nature-light">Flora of ITB Jatinangor</h3>
+                        <p class="mt-2 text-nature-dark dark:text-nature-cream font-exo">A comprehensive database of flora diversity at ITB Jatinangor campus</p>
+                        <a href="https://selvabiodiv.com/" class="inline-flex items-center mt-4 text-nature-medium dark:text-nature-light font-exo font-semibold hover:underline">
+                            Visit Project
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>       
+            </div>
+        </div>
+    </main>
+     <!-- Kritik saran -->
+     <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 mb-8 border border-nature-light/30">
+        <h2 class="text-2xl font-orbitron font-bold text-nature-dark dark:text-nature-light mb-6">Send Us Your Feedback</h2>
+        <div class="space-y-4">
+            <div>
+                <label for="nama" class="block text-nature-dark dark:text-nature-cream font-exo mb-2">Name</label>
+                <input id="nama" name="nama" type="text" placeholder="Enter your name"
+                       class="w-full px-4 py-2 border border-nature-light/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-nature-medium dark:bg-nature-dark/80 dark:text-nature-cream" />
+            </div>
+            
+            <div>
+                <label for="email" class="block text-nature-dark dark:text-nature-cream font-exo mb-2">Email</label>
+                <input id="email" name="email" type="email" placeholder="example: bootcampMAPID@email.com"
+                       class="w-full px-4 py-2 border border-nature-light/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-nature-medium dark:bg-nature-dark/80 dark:text-nature-cream" />
+            </div>
+            
+            <div>
+                <label for="kritik" class="block text-nature-dark dark:text-nature-cream font-exo mb-2">Feedback</label>
+                <textarea id="kritik" name="kritik" placeholder="Input your feedback." 
+                          class="w-full px-4 py-2 border border-nature-light/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-nature-medium dark:bg-nature-dark/80 dark:text-nature-cream" rows="4"></textarea>
+            </div>
+            
+            <button onclick="onSubmit()" 
+                    class="bg-nature-medium hover:bg-nature-dark text-nature-cream font-exo font-semibold py-2 px-6 rounded-lg transition-colors duration-300">Submit</button>
+        </div>
+    </div>
+    <script>
+        function onSubmit(){
+         const name = document.getElementById("nama").value
+         const email= document.getElementById("email").value
+         const kritik_saran = document.getElementById("kritik").value
+ 
+         if(name.length>0 && email.length>0 && kritik_saran.length>0){
+             postSaran(name, email, kritik_saran)
+             alert("Thank you for your Feedback :)")
+         }else{
+ 
+             alert("Invalid Input!")
+ 
+         }
+ 
+        } 
+ 
+        function postSaran(name, email, kritik_saran){ 
+         console.log(name, email, kritik_saran)
+         fetch("https://68d1458fe6c0cbeb39a42d82.mockapi.io/webGIS/kritiksaran/v1", {
+             method:"POST", 
+             headers:{"Content-Type": "application/json"}, 
+             body:JSON.stringify({name, email, kritik_saran})
+         })
+         .then(response=> response.json())
+         .then(()=>{ getData()})
+         .catch(error=> console.log(error))
+        }
+         
+        function getData(){
+         
+         const tableBody = document.getElementById("table-body")
+         tableBody.innerHTML= ''
+          fetch("https://68d1458fe6c0cbeb39a42d82.mockapi.io/webGIS/kritiksaran/v1", {
+             method:"GET", 
+             headers:{"Content-Type": "application/json"}, 
+         })
+         .then(response=> response.json())
+         .then((data)=> 
+     
+             data.forEach(data=> {
+                 const row = document.createElement("tr")
+                 const nameCell = document.createElement("td")
+            
+                 nameCell.textContent = data.name
+                 const emailCell = document.createElement("td")
+                 emailCell.textContent = data.email
+                 const kritikCell = document.createElement("td")
+                 kritikCell.textContent = data.kritik_saran
+ 
+                 row.appendChild(nameCell)
+                 row.appendChild(emailCell)
+                 row.appendChild(kritikCell)
+                 tableBody.appendChild(row)
+                 
+ 
+             }
+ 
+             )
+     )
+         .catch(error=> console.log(error))
+        }
+       
+        getData()
+     </script>
+  
+    <!--Tabel-->
+    <div class="overflow-x-auto rounded-lg shadow-lg border border-nature-light/30">
+        <table class="min-w-full divide-y divide-nature-light/30 bg-white dark:bg-nature-dark/60">
+            <thead class="bg-nature-medium/20 dark:bg-nature-dark/80"> 
+                <tr>
+                    <th class="px-6 py-4 text-left text-sm font-exo font-semibold text-nature-dark dark:text-nature-light uppercase tracking-wider">Nama</th>
+                    <th class="px-6 py-4 text-left text-sm font-exo font-semibold text-nature-dark dark:text-nature-light uppercase tracking-wider">Email</th>
+                    <th class="px-6 py-4 text-left text-sm font-exo font-semibold text-nature-dark dark:text-nature-light uppercase tracking-wider">Kritik dan Saran</th>
+                </tr>
+            </thead>
+            <tbody id="table-body" class="divide-y divide-nature-light/30 bg-white dark:bg-nature-dark/60">
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-nature-dark text-nature-cream py-8 mt-12">
+        <div class="container mx-auto px-4 border-t border-nature-medium/30 mt-6 pt-6 text-center font-exo opacity-70">
+                <p>© 2025 GeoForest - WebGIS Academy GeoMAPID</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menyesuaikan tema sesuai settingan sistem user
+
+        if (localStorage.theme === "dark" || (!('theme' in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+            document.getElementById('theme-icon').textContent = '☀️';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove("dark");
+            document.getElementById('theme-icon').textContent = '🌙';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '🌙';
+            }
+        }
+
+        function changeTheme() {
+            if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                localStorage.theme = "light";
+                document.getElementById('theme-icon').textContent = '🌙';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '🌙';
+                }
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.theme = "dark";
+                document.getElementById('theme-icon').textContent = '☀️';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '☀️';
+                }
+            }
+        }
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    
+</body>
+</html>

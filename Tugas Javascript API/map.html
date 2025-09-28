@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAP | GeoForest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        nature: {
+                            dark: "#0A400C",
+                            medium: "#819067",
+                            light: "#B1AB86",
+                            cream: "#FEFAE0"
+                        }
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['Exo 2', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark:bg-nature-dark bg-nature-cream transition-colors duration-500 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-nature-dark to-nature-medium py-4 shadow-lg dark:shadow-nature-dark/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-orbitron text-xl font-bold text-nature-cream">GeoForest</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Home</a>
+                    <a href="map.html" class="text-nature-light font-semibold border-b-2 border-nature-light transition-colors duration-300 font-exo">Map</a>
+                    <a href="profile.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Contact Us</a>
+                    <button onclick="changeTheme()" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-nature-cream">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-2">
+                <a href="index.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Home</a>
+                <a href="map.html" class="block py-2 text-nature-light font-semibold transition-colors duration-300 font-exo">Map</a>
+                <a href="profile.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Contact Us</a>
+                <button onclick="changeTheme()" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                    <span id="mobile-theme-icon">🌙</span>
+                    <span class="ml-2">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white dark:bg-nature-dark/60 rounded-xl shadow-lg p-6 mb-8 border border-nature-light/30">
+            <!-- Frame Peta -->
+            <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-nature-medium">
+                <img src="map.jpg" 
+                     alt="Geographic Map" 
+                     class="w-full h-auto object-cover">
+                
+                </div>
+            </div>
+            
+            <!-- Map Legend -->
+            <div class="mt-6 bg-nature-cream dark:bg-nature-dark/40 p-4 rounded-lg border border-nature-light/30">
+                <h3 class="font-exo font-semibold text-nature-dark dark:text-nature-light mb-3">Map Legend</h3>
+                </div>
+            </div>
+            
+            <!-- Map Tools -->
+            <div class="mt-8">
+                <h3 class="font-exo font-semibold text-nature-dark dark:text-nature-light mb-4">Map Tools</h3>
+                <div class="flex flex-wrap gap-3">
+                    <button class="bg-nature-dark hover:bg-nature-medium text-nature-cream font-exo font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center">
+                        <i class="fas fa-ruler-combined mr-2"></i> Measure Distance
+                    </button>
+                    <button class="bg-nature-dark hover:bg-nature-medium text-nature-cream font-exo font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center">
+                        <i class="fas fa-draw-polygon mr-2"></i> Measure Area
+                    </button>
+                    <button class="bg-nature-dark hover:bg-nature-medium text-nature-cream font-exo font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center">
+                        <i class="fas fa-layer-group mr-2"></i> Layer Management
+                    </button>
+                    <button class="bg-nature-dark hover:bg-nature-medium text-nature-cream font-exo font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Report Incident
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Map Description -->
+            <div class="mt-8">
+                <h3 class="font-exo font-semibold text-nature-dark dark:text-nature-light mb-3">About This Map</h3>
+                <p class="text-nature-dark dark:text-nature-cream font-exo"> WebGIS Masih dalam Proses Pengembangan </p>
+            </div>
+        </div>
+    </main>
+
+     <!-- Footer -->
+     <footer class="bg-nature-dark text-nature-cream py-8 mt-12">
+        <div class="container mx-auto px-4 border-t border-nature-medium/30 mt-6 pt-6 text-center font-exo opacity-70">
+                <p>© 2025 GeoForest - WebGIS Academy GeoMAPID</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Set initial theme based on localStorage or system preference
+        if (localStorage.theme === "dark" || (!('theme' in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+            document.getElementById('theme-icon').textContent = '☀️';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove("dark");
+            document.getElementById('theme-icon').textContent = '🌙';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '🌙';
+            }
+        }
+
+        function changeTheme() {
+            if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                localStorage.theme = "light";
+                document.getElementById('theme-icon').textContent = '🌙';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '🌙';
+                }
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.theme = "dark";
+                document.getElementById('theme-icon').textContent = '☀️';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '☀️';
+                }
+            }
+        }
+
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

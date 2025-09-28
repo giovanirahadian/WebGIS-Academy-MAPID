@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        nature: {
+                            dark: "#0A400C",
+                            medium: "#819067",
+                            light: "#B1AB86",
+                            cream: "#FEFAE0"
+                        }
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['Exo 2', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Home Page | GeoForest</title>
+</head>
+<body class="dark:bg-nature-dark bg-nature-cream transition-colors duration-500">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-nature-dark to-nature-medium py-4 shadow-lg dark:shadow-nature-dark/30">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="font-orbitron text-xl font-bold text-nature-cream">GeoForest</a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-nature-light font-semibold border-b-2 border-nature-light transition-colors duration-300 font-exo">Home</a>
+                    <a href="map.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Map</a>
+                    <a href="profile.html" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Contact Us</a>
+                    <button onclick="changeTheme()" class="text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                        <span id="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-nature-cream">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-2">
+                <a href="index.html" class="block py-2 text-nature-light font-semibold transition-colors duration-300 font-exo">Home</a>
+                <a href="map.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Map</a>
+                <a href="profile.html" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo">Contact Us</a>
+                <button onclick="changeTheme()" class="block py-2 text-nature-cream hover:text-nature-light transition-colors duration-300 font-exo flex items-center">
+                    <span id="mobile-theme-icon">🌙</span>
+                    <span class="ml-2">Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Segmen 1 -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-nature-medium/20 to-transparent"></div>
+        
+        <div class="flex flex-col md:flex-row items-center max-w-screen-xl mx-auto px-6 py-12 h-auto md:h-[70vh] space-y-8 md:space-y-0 md:space-x-8 relative z-10">
+            <div class="w-full md:w-1/2 dark:text-nature-cream text-nature-dark flex flex-col justify-center space-y-6">
+                <h1 class="font-orbitron text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-nature-dark dark:from-nature-light to-nature-medium dark:to-nature-light">
+                    GeoForest
+                </h1>
+                <p class="font-exo text-xl md:text-2xl font-light">
+                    Selamat datang dalam Platform GeoForest!
+                </p>
+                <p class="font-exo text-lg">
+                    GeoForest, sebuah platform WebGIS yang dirancang khusus untuk memantau, menganalisis, 
+                    dan mengelola data sumber daya hutan dan lingkungan secara terintegrasi. Sistem ini 
+                    berfokus pada penyediaan informasi yang akurat dan mudah diakses untuk mendukung upaya konservasi, 
+                    pencegahan deforestasi, dan pengelolaan keanekaragaman hayati. GeoForest bertujuan menjadi alat pendukung 
+                    pengambilan keputusan bagi berbagai <i>stakeholder</i> di sektor kehutanan.
+                </p>
+                
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-nature-medium/20 rounded-2xl blur-lg"></div>
+                    <img src="https://plus.unsplash.com/premium_photo-1663950774999-8da6f0553d8c?q=80&w=1075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         class="relative h-64 md:h-96 w-full object-cover rounded-xl shadow-2xl border-4 border-nature-light/50 transform transition-transform duration-700 hover:scale-105" 
+                         alt="Futuristic forest landscape with digital overlay">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Animasi -->
+        <div class="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-nature-medium/10 to-transparent"></div>
+    </section>
+
+    <!-- Segmen 2 -->
+    <section class="py-16 bg-nature-cream dark:bg-nature-dark/80 transition-colors duration-500">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-12 text-nature-dark dark:text-nature-light">Fitur Inti</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Fitur 1 -->
+                <div class="bg-white dark:bg-nature-dark/60 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-nature-light/30">
+                    <div class="w-14 h-14 rounded-full bg-nature-dark flex items-center justify-center mb-4">
+                        <span class="text-2xl">🌳</span>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-nature-dark dark:text-nature-light">Manajemen Layer</h3>
+                    <p class="font-exo text-nature-dark dark:text-nature-cream/80">Overlap berbagai data krusial,seperti peta tutupan hutan tahun tertentu, sebaran hotspot, batas kawasan konservasi,dan Daerah Aliran Sungai (DAS).</p>
+                </div>
+                
+                <!-- Fitur 2 -->
+                <div class="bg-white dark:bg-nature-dark/60 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-nature-light/30">
+                    <div class="w-14 h-14 rounded-full bg-nature-dark flex items-center justify-center mb-4">
+                        <span class="text-2xl">📏</span>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-nature-dark dark:text-nature-light">Toolbar Pengukuran</h3>
+                    <p class="font-exo text-nature-dark dark:text-nature-cream/80">Alat ukur area dan jarak yang dapat digunakan untuk perencanaan lapangan.</p>
+                </div>
+                
+                <!-- Fitur 3 -->
+                <div class="bg-white dark:bg-nature-dark/60 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-nature-light/30">
+                    <div class="w-14 h-14 rounded-full bg-nature-dark flex items-center justify-center mb-4">
+                        <span class="text-2xl">📢</span>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-nature-dark dark:text-nature-light">Fitur Pelaporan</h3>
+                    <p class="font-exo text-nature-dark dark:text-nature-cream/80">Petugas atau masyarakat melaporkan titik kebakaran, penebangan liar, atau konflik manusia-satwa dengan melampirkan koordinat, deskripsi, dan foto.</p>
+                </div>
+
+                <!-- Fitur 4 -->
+                <div class="bg-white dark:bg-nature-dark/60 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-nature-light/30">
+                    <div class="w-14 h-14 rounded-full bg-nature-dark flex items-center justify-center mb-4">
+                        <span class="text-2xl">🗺️</span>
+                    </div>
+                    <h3 class="text-xl font-orbitron font-semibold mb-3 text-nature-dark dark:text-nature-light">Peta Interaktif</h3>
+                    <p class="font-exo text-nature-dark dark:text-nature-cream/80">Setiap fitur pada peta dapat diklik untuk menampilkan informasi atribut yang detail dalam sebuah <i>pop-up window</i>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segmen 3 -->
+    <section class="py-16 bg-white dark:bg-nature-dark transition-colors duration-500">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-12 text-nature-dark dark:text-nature-light">To be confirmed</h2>
+                     <div class="relative">
+                    <div class="absolute -inset-4 bg-nature-medium/20 rounded-2xl blur-lg"></div>
+                    <img src="isian foto.jpeg" 
+                         class="relative rounded-xl shadow-2xl border-4 border-nature-light/50 transform transition-transform duration-700" 
+                         alt="Geospatial analysis visualization">
+                </div>
+            </div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-orbitron font-bold text-center mb-12 text-nature-dark dark:text-nature-light">This Website is Still Under Construction - Admin Giovani :D</h2>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-nature-dark text-nature-cream py-8 mt-12">
+        <div class="container mx-auto px-4 border-t border-nature-medium/30 mt-6 pt-6 text-center font-exo opacity-70">
+                <p>© 2025 GeoForest - WebGIS Academy GeoMAPID</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menyesuaikan tema sesuai settingan sistem user
+        if (localStorage.theme === "dark" || (!('theme' in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+            document.getElementById('theme-icon').textContent = '☀️';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '☀️';
+            }
+        } else {
+            document.documentElement.classList.remove("dark");
+            document.getElementById('theme-icon').textContent = '🌙';
+            if (document.getElementById('mobile-theme-icon')) {
+                document.getElementById('mobile-theme-icon').textContent = '🌙';
+            }
+        }
+
+        function changeTheme() {
+            if (document.documentElement.classList.contains("dark")) {
+                document.documentElement.classList.remove("dark");
+                localStorage.theme = "light";
+                document.getElementById('theme-icon').textContent = '🌙';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '🌙';
+                }
+            } else {
+                document.documentElement.classList.add("dark");
+                localStorage.theme = "dark";
+                document.getElementById('theme-icon').textContent = '☀️';
+                if (document.getElementById('mobile-theme-icon')) {
+                    document.getElementById('mobile-theme-icon').textContent = '☀️';
+                }
+            }
+        }
+        // Mobile menu functionality
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
